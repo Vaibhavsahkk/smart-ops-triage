@@ -1,0 +1,45 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.egg
+*.egg-info/
+dist/
+build/
+.eggs/
+*.whl
+
+# Virtual environments
+venv/
+.venv/
+env/
+.env/
+ENV/
+
+# Database (local runtime file - do not commit)
+data/triage.db
+
+# Exported CSVs (generated at runtime)
+data/exports/*.csv
+
+# Environment / secrets
+.env
+*.env
+secrets.toml
+.streamlit/secrets.toml
+
+# IDE / editor
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+
+# Test artifacts (temp file - safe to delete)
+test_triage.py
+
+# Streamlit cache
+.streamlit/cache/

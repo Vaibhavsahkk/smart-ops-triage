@@ -1,0 +1,4 @@
+streamlit>=1.27
+pandas
+faker
+requests
