@@ -39,8 +39,8 @@ for i in range(60):
     desc = random.choice(SAMPLE_DESCRIPTIONS)
     r = triage(desc)
     tid = f"REQ-{uuid.uuid4().hex[:8].upper()}"
-    # Vary submitted_at across last 60 days for realistic time-series
-    days_ago = random.randint(0, 60)
+    # Vary submitted_at across last 365 days for realistic time-series visualization
+    days_ago = random.randint(0, 365)
     hours = random.randint(0, 23)
     minutes = random.randint(0, 59)
     submitted_at = (datetime.now() - timedelta(days=days_ago, hours=hours, minutes=minutes)).strftime('%Y-%m-%d %H:%M:%S')
@@ -52,11 +52,11 @@ for i in range(60):
             suggested_priority, final_priority,
             suggested_team, final_team,
             submitted_at, triage_time_ms, notification_sent
-        ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, 1)
+        ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
     """, (tid, fake.name(), random.choice(SITES), random.choice(BUILDINGS), desc,
           r['category'], r['confidence'], r['category'],
           r['priority'], r['priority'],
           r['team'], r['team'],
-          submitted_at, r['triage_time_ms']))
+          submitted_at, r['triage_time_ms'], 1))
 
 print("Seeded 60 sample requests with varied timestamps.")

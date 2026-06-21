@@ -57,6 +57,8 @@ def route_team(category: str) -> str:
 
 
 def triage(description: str) -> dict:
+    if not description or not isinstance(description, str):
+        description = ""
     start = time.perf_counter()
     category, confidence = categorize(description)
     priority = predict_priority(description)
