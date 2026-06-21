@@ -24,6 +24,14 @@ This system replaces manual intake with an end-to-end automation pipeline. It fe
   <img src="images/admin_queue.png" alt="Admin Queue" width="48%">
 </div>
 
+## Operational Dashboard (Power BI)
+The system exports structured, deterministic CSVs (`requests.csv`, `overrides.csv`, `calendar.csv`) designed directly for Power BI. The calendar dimension guarantees non-overlapping dates for 100% accurate time-series reporting.
+
+<div align="center">
+  <img src="images/powerbi_dashboard.png" alt="Power BI Dashboard" width="100%">
+  <em>*Power BI Dashboard connected to the local CSV extract pipeline*</em>
+</div>
+
 ---
 
 ## Key Features
