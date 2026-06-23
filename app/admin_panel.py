@@ -30,72 +30,74 @@ html, body, [class*="css"], .stApp {
     color: #0F172A !important;
 }
 #MainMenu, footer, header, [data-testid="stToolbar"] { display: none !important; }
-.block-container { padding: 0 !important; max-width: 100% !important; }
+.block-container { padding: 0 40px 64px !important; max-width: 100% !important; }
 
 /* topbar */
 .topbar {
     background: #0F172A;
-    padding: 0 32px;
-    height: 60px;
+    padding: 0 40px;
+    height: 64px;
     display: flex;
     align-items: center;
     justify-content: space-between;
     box-shadow: 0 1px 3px rgba(0,0,0,0.3);
+    margin-left: -40px;
+    margin-right: -40px;
 }
-.tb-brand { display:flex; align-items:center; gap:10px; }
+.tb-brand { display:flex; align-items:center; gap:12px; }
 .tb-dot { width:8px; height:8px; background:#3B82F6; border-radius:50%; }
-.tb-name { font-size:0.9rem; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; color:#F8FAFC; }
-.tb-sub  { font-size:0.72rem; color:#64748B; margin-left:4px; }
-.tb-pills { display:flex; gap:8px; align-items:center; }
+.tb-name { font-size:0.95rem; font-weight:700; letter-spacing:0.05em; text-transform:uppercase; color:#F8FAFC; }
+.tb-sub  { font-size:0.8125rem; color:#64748B; margin-left:4px; }
+.tb-pills { display:flex; gap:10px; align-items:center; }
 .tb-pill {
-    font-size:0.7rem; font-weight:600; letter-spacing:0.06em;
-    padding:4px 12px; border-radius:100px;
+    font-size:0.75rem; font-weight:600; letter-spacing:0.04em;
+    padding:6px 14px; border-radius:100px;
 }
 .tb-open   { color:#FBBF24; background:rgba(251,191,36,0.15); border:1px solid rgba(251,191,36,0.3); }
 .tb-closed { color:#34D399; background:rgba(52,211,153,0.15); border:1px solid rgba(52,211,153,0.3); }
 
 /* main layout */
-.main-wrap { padding: 28px 32px 60px; }
+.main-wrap { padding: 0; }
 
 /* stat cards */
-.kpi-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:16px; margin-bottom:28px; }
+.kpi-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:24px; margin-bottom:32px; }
 .kpi-card {
     background:#FFFFFF;
     border:1px solid #E2E8F0;
-    border-radius:14px;
-    padding:22px 24px;
+    border-radius:12px;
+    padding:24px;
     position:relative;
     overflow:hidden;
-    box-shadow:0 1px 3px rgba(0,0,0,0.04), 0 4px 12px rgba(0,0,0,0.04);
-    transition:box-shadow 0.2s;
+    box-shadow:0 1px 3px 0 rgba(0,0,0,0.05), 0 1px 2px 0 rgba(0,0,0,0.03);
+    transition:all 0.2s ease;
 }
-.kpi-card:hover { box-shadow:0 4px 16px rgba(0,0,0,0.08); }
+.kpi-card:hover { box-shadow:0 4px 6px -1px rgba(0,0,0,0.05), 0 2px 4px -1px rgba(0,0,0,0.025); transform: translateY(-1px); }
 .kpi-card::before {
     content:'';
     position:absolute;
     top:0; left:0; right:0;
-    height:3px;
-    border-radius:14px 14px 0 0;
+    height:4px;
+    border-radius:12px 12px 0 0;
 }
 .kpi-blue::before  { background:#3B82F6; }
 .kpi-amber::before { background:#F59E0B; }
 .kpi-green::before { background:#10B981; }
 .kpi-indigo::before{ background:#6366F1; }
 .kpi-label {
-    font-size:0.7rem; font-weight:700; letter-spacing:0.12em;
-    text-transform:uppercase; color:#94A3B8; margin-bottom:10px;
+    font-size:0.75rem; font-weight:600; letter-spacing:0.05em;
+    text-transform:uppercase; color:#64748B; margin-bottom:8px;
 }
 .kpi-value {
-    font-size:2.2rem; font-weight:800; letter-spacing:-0.03em;
-    color:#0F172A; line-height:1;
+    font-size:2.0rem; font-weight:700; letter-spacing:-0.02em;
+    color:#0F172A; line-height:1.25; font-variant-numeric: tabular-nums;
 }
-.kpi-sub { font-size:0.75rem; color:#94A3B8; margin-top:6px; font-weight:400; }
+.kpi-sub { font-size:0.75rem; color:#64748B; margin-top:6px; font-weight:400; }
 
 /* page section title */
 .section-title {
-    font-size:0.68rem; font-weight:700; letter-spacing:0.14em;
-    text-transform:uppercase; color:#94A3B8;
-    margin-bottom:16px; padding-bottom:10px;
+    font-size:0.875rem; font-weight:600; letter-spacing:0.02em;
+    text-transform:none; color:#334155;
+    margin-bottom:20px; padding-bottom:12px;
     border-bottom:1px solid #E2E8F0;
 }
 
@@ -104,19 +106,19 @@ html, body, [class*="css"], .stApp {
     background:#FFFFFF;
     border:1px solid #E2E8F0;
     border-radius:12px;
-    margin-bottom:8px;
+    margin-bottom:12px;
     overflow:hidden;
     box-shadow:0 1px 2px rgba(0,0,0,0.04);
-    transition:box-shadow 0.2s, border-color 0.2s;
+    transition:all 0.2s ease;
 }
 .tkt-card:hover { box-shadow:0 4px 12px rgba(0,0,0,0.08); border-color:#CBD5E1; }
 .p-chip {
     display:inline-flex; align-items:center;
-    font-size:0.68rem; font-weight:700; letter-spacing:0.08em;
-    text-transform:uppercase; padding:3px 10px; border-radius:100px;
+    font-size:0.75rem; font-weight:600; letter-spacing:0.02em;
+    text-transform:uppercase; padding:4px 12px; border-radius:100px;
 }
 .conf-bar {
-    display:inline-block; width:60px; height:5px;
+    display:inline-block; width:60px; height:6px;
     background:#F1F5F9; border-radius:5px; overflow:hidden;
     vertical-align:middle; margin-right:6px;
 }
@@ -125,14 +127,14 @@ html, body, [class*="css"], .stApp {
 /* insights table */
 .ins-row {
     display:flex; align-items:center; justify-content:space-between;
-    padding:11px 0; border-bottom:1px solid #F8FAFC;
+    padding:12px 0; border-bottom:1px solid #F1F5F9;
 }
 .ins-row:last-child { border-bottom:none; }
-.ins-label { font-size:0.85rem; color:#475569; }
-.ins-bar-wrap { display:flex; align-items:center; gap:10px; }
-.ins-bar { width:100px; height:5px; background:#F1F5F9; border-radius:5px; overflow:hidden; }
+.ins-label { font-size:0.875rem; color:#475569; }
+.ins-bar-wrap { display:flex; align-items:center; gap:12px; }
+.ins-bar { width:120px; height:6px; background:#F1F5F9; border-radius:5px; overflow:hidden; }
 .ins-fill { height:100%; border-radius:5px; }
-.ins-count { font-size:0.8rem; font-weight:700; color:#0F172A; min-width:24px; text-align:right; }
+.ins-count { font-size:0.875rem; font-weight:600; color:#0F172A; min-width:24px; text-align:right; }
 
 /* sidebar */
 section[data-testid="stSidebar"] {
@@ -140,14 +142,15 @@ section[data-testid="stSidebar"] {
     border-right:1px solid #E2E8F0 !important;
 }
 section[data-testid="stSidebar"] label {
-    font-size:0.7rem !important; font-weight:700 !important;
-    letter-spacing:0.1em !important; text-transform:uppercase !important;
+    font-size:0.75rem !important; font-weight:600 !important;
+    letter-spacing:0.05em !important; text-transform:uppercase !important;
     color:#64748B !important;
 }
 section[data-testid="stSidebar"] input {
     background:#F8FAFC !important; border:1px solid #E2E8F0 !important;
     border-radius:8px !important; color:#0F172A !important;
     font-family:'Inter',sans-serif !important;
+    padding: 8px 12px !important;
 }
 
 /* expander */
@@ -155,38 +158,39 @@ div[data-testid="stExpander"] {
     background:#FFFFFF !important;
     border:1px solid #E2E8F0 !important;
     border-radius:12px !important;
-    margin-bottom:8px !important;
+    margin-bottom:12px !important;
     box-shadow:0 1px 2px rgba(0,0,0,0.04) !important;
     overflow:hidden !important;
 }
 div[data-testid="stExpander"] summary {
-    font-size:0.83rem !important; font-weight:500 !important;
-    color:#475569 !important; padding:14px 20px !important;
-    font-family:'JetBrains Mono',monospace !important;
+    font-size:0.875rem !important; font-weight:500 !important;
+    color:#1E293B !important; padding:16px 24px !important;
+    font-family:'Inter', sans-serif !important;
 }
 div[data-testid="stExpander"] summary:hover { color:#0F172A !important; }
 div[data-testid="stExpander"] label {
-    font-size:0.7rem !important; font-weight:700 !important;
-    letter-spacing:0.1em !important; text-transform:uppercase !important;
+    font-size:0.75rem !important; font-weight:600 !important;
+    letter-spacing:0.05em !important; text-transform:uppercase !important;
     color:#64748B !important;
 }
 div[data-testid="stExpander"] .stSelectbox > div > div {
     background:#F8FAFC !important; border:1px solid #E2E8F0 !important;
     border-radius:8px !important; color:#0F172A !important;
-    font-family:'Inter',sans-serif !important; font-size:0.88rem !important;
+    font-family:'Inter',sans-serif !important; font-size:0.875rem !important;
 }
 div[data-testid="stExpander"] .stTextArea textarea {
     background:#F8FAFC !important; border:1px solid #E2E8F0 !important;
-    border-radius:8px !important; color:#64748B !important;
-    font-family:'JetBrains Mono',monospace !important; font-size:0.78rem !important;
+    border-radius:8px !important; color:#475569 !important;
+    font-family:'JetBrains Mono',monospace !important; font-size:0.8125rem !important;
+    line-height: 1.5 !important;
 }
 
 /* buttons */
 .stButton > button {
     font-family:'Inter',sans-serif !important;
-    font-size:0.78rem !important; font-weight:600 !important;
+    font-size:0.8125rem !important; font-weight:600 !important;
     border-radius:8px !important; border:none !important;
-    padding:9px 16px !important; width:100% !important;
+    padding:10px 18px !important; width:100% !important;
     transition:all 0.15s ease !important;
 }
 div[data-testid="stHorizontalBlock"] > div:nth-child(1) .stButton > button {
@@ -279,8 +283,8 @@ st.markdown(f"""
 </div>
 """, unsafe_allow_html=True)
 
-# ── Main wrap ────────────────────────────────────────────────────────────────
-st.markdown('<div class="main-wrap">', unsafe_allow_html=True)
+# ── Spacer ──────────────────────────────────────────────────────────────────
+st.markdown("<div style='height:32px'></div>", unsafe_allow_html=True)
 
 # ── KPI Cards ────────────────────────────────────────────────────────────────
 st.markdown(f"""
@@ -390,58 +394,29 @@ with tab2:
     CAT_COLORS = ['#3B82F6','#6366F1','#8B5CF6','#EC4899','#F59E0B','#10B981','#EF4444','#14B8A6']
 
     with cat_col:
-        st.markdown("""
-        <div style="background:#FFFFFF;border:1px solid #E2E8F0;border-radius:14px;padding:22px 24px;box-shadow:0 1px 3px rgba(0,0,0,0.04);">
-          <div class="section-title">Tickets by Category</div>
-        """, unsafe_allow_html=True)
+        cat_html = '<div style="background:#FFFFFF;border:1px solid #E2E8F0;border-radius:14px;padding:22px 24px;box-shadow:0 1px 3px rgba(0,0,0,0.04);"><div class="section-title">Tickets by Category</div>'
         for i, r in enumerate(cat_rows):
             pct = round(r['c'] / total * 100) if total else 0
             color = CAT_COLORS[i % len(CAT_COLORS)]
-            st.markdown(f"""
-            <div class="ins-row">
-              <span class="ins-label">{r['final_category']}</span>
-              <div class="ins-bar-wrap">
-                <div class="ins-bar"><div class="ins-fill" style="width:{pct}%;background:{color};"></div></div>
-                <span class="ins-count">{r['c']}</span>
-              </div>
-            </div>""", unsafe_allow_html=True)
-        st.markdown("</div>", unsafe_allow_html=True)
+            cat_html += f'<div class="ins-row"><span class="ins-label">{r["final_category"]}</span><div class="ins-bar-wrap"><div class="ins-bar"><div class="ins-fill" style="width:{pct}%;background:{color};"></div></div><span class="ins-count">{r["c"]}</span></div></div>'
+        cat_html += "</div>"
+        st.markdown(cat_html, unsafe_allow_html=True)
 
     with pri_col:
-        st.markdown("""
-        <div style="background:#FFFFFF;border:1px solid #E2E8F0;border-radius:14px;padding:22px 24px;box-shadow:0 1px 3px rgba(0,0,0,0.04);">
-          <div class="section-title">Tickets by Priority</div>
-        """, unsafe_allow_html=True)
+        pri_html = '<div style="background:#FFFFFF;border:1px solid #E2E8F0;border-radius:14px;padding:22px 24px;box-shadow:0 1px 3px rgba(0,0,0,0.04);"><div class="section-title">Tickets by Priority</div>'
         for r in pri_rows:
             pct = round(r['c'] / total * 100) if total else 0
             fc, _, _ = PCFG.get(r['final_priority'], ('#3B82F6','',''))
-            st.markdown(f"""
-            <div class="ins-row">
-              <span class="ins-label">{r['final_priority']}</span>
-              <div class="ins-bar-wrap">
-                <div class="ins-bar"><div class="ins-fill" style="width:{pct}%;background:{fc};"></div></div>
-                <span class="ins-count">{r['c']}</span>
-              </div>
-            </div>""", unsafe_allow_html=True)
-        st.markdown("</div>", unsafe_allow_html=True)
+            pri_html += f'<div class="ins-row"><span class="ins-label">{r["final_priority"]}</span><div class="ins-bar-wrap"><div class="ins-bar"><div class="ins-fill" style="width:{pct}%;background:{fc};"></div></div><span class="ins-count">{r["c"]}</span></div></div>'
+        pri_html += "</div>"
+        st.markdown(pri_html, unsafe_allow_html=True)
 
     st.markdown("<div style='height:16px'></div>", unsafe_allow_html=True)
 
     # Team workload card
-    st.markdown("""
-    <div style="background:#FFFFFF;border:1px solid #E2E8F0;border-radius:14px;padding:22px 24px;box-shadow:0 1px 3px rgba(0,0,0,0.04);">
-      <div class="section-title">Workload by Team</div>
-    """, unsafe_allow_html=True)
+    team_html = '<div style="background:#FFFFFF;border:1px solid #E2E8F0;border-radius:14px;padding:22px 24px;box-shadow:0 1px 3px rgba(0,0,0,0.04);"><div class="section-title">Workload by Team</div>'
     for r in team_rows:
         pct = round(r['c'] / total * 100) if total else 0
-        st.markdown(f"""
-        <div class="ins-row">
-          <span class="ins-label">{r['final_team']}</span>
-          <div class="ins-bar-wrap">
-            <div class="ins-bar" style="width:160px;"><div class="ins-fill" style="width:{pct}%;background:#6366F1;"></div></div>
-            <span class="ins-count">{r['c']}</span>
-          </div>
-        </div>""", unsafe_allow_html=True)
-    st.markdown("</div>", unsafe_allow_html=True)
-
-st.markdown('</div>', unsafe_allow_html=True)
+        team_html += f'<div class="ins-row"><span class="ins-label">{r["final_team"]}</span><div class="ins-bar-wrap"><div class="ins-bar" style="width:160px;"><div class="ins-fill" style="width:{pct}%;background:#6366F1;"></div></div><span class="ins-count">{r["c"]}</span></div></div>'
+    team_html += "</div>"
+    st.markdown(team_html, unsafe_allow_html=True)

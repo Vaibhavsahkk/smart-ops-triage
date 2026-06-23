@@ -36,8 +36,8 @@ html, body, [class*="css"], .stApp {
 /* ── Top navigation bar ── */
 .topnav {
     background: #0F172A;
-    padding: 0 40px;
-    height: 60px;
+    padding: 0 48px;
+    height: 64px;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -49,7 +49,7 @@ html, body, [class*="css"], .stApp {
 .topnav-brand {
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 12px;
 }
 .topnav-dot {
     width: 8px;
@@ -58,22 +58,22 @@ html, body, [class*="css"], .stApp {
     border-radius: 50%;
 }
 .topnav-name {
-    font-size: 0.9rem;
+    font-size: 0.95rem;
     font-weight: 700;
-    letter-spacing: 0.08em;
+    letter-spacing: 0.05em;
     text-transform: uppercase;
     color: #F8FAFC;
 }
 .topnav-sub {
-    font-size: 0.72rem;
+    font-size: 0.8125rem;
     font-weight: 400;
     color: #64748B;
     margin-left: 4px;
 }
 .topnav-badge {
-    font-size: 0.7rem;
+    font-size: 0.75rem;
     font-weight: 600;
-    letter-spacing: 0.06em;
+    letter-spacing: 0.04em;
     padding: 4px 12px;
     background: rgba(59,130,246,0.15);
     color: #93C5FD;
@@ -83,53 +83,57 @@ html, body, [class*="css"], .stApp {
 
 /* ── Page wrapper ── */
 .page-wrap {
-    max-width: 680px;
+    max-width: 600px;
+    width: calc(100% - 48px) !important;
     margin: 0 auto;
-    padding: 48px 24px 80px;
 }
 
 /* ── Page header ── */
 .page-header {
-    margin-bottom: 36px;
+    max-width: 600px;
+    width: calc(100% - 48px) !important;
+    margin: 56px auto 32px auto !important;
 }
 .page-eyebrow {
-    font-size: 0.7rem;
+    font-size: 0.75rem;
     font-weight: 600;
-    letter-spacing: 0.15em;
+    letter-spacing: 0.05em;
     text-transform: uppercase;
     color: #3B82F6;
-    margin-bottom: 10px;
+    margin-bottom: 8px;
 }
 .page-title {
-    font-size: 2rem;
-    font-weight: 800;
-    letter-spacing: -0.03em;
+    font-size: 1.875rem;
+    font-weight: 700;
+    letter-spacing: -0.025em;
     color: #0F172A;
-    line-height: 1.15;
-    margin-bottom: 10px;
+    line-height: 1.2;
+    margin-bottom: 12px;
 }
 .page-desc {
-    font-size: 0.92rem;
-    color: #64748B;
-    line-height: 1.65;
+    font-size: 0.875rem;
+    color: #475569;
+    line-height: 1.6;
     font-weight: 400;
 }
 
 /* ── Info strip ── */
 .info-strip {
     display: flex;
-    gap: 20px;
-    margin-bottom: 28px;
-    padding: 14px 20px;
+    gap: 24px;
+    max-width: 600px;
+    width: calc(100% - 48px) !important;
+    margin: 0 auto 32px auto !important;
+    padding: 12px 18px;
     background: #EFF6FF;
     border: 1px solid #BFDBFE;
-    border-radius: 10px;
+    border-radius: 8px;
 }
 .info-item {
     display: flex;
     align-items: center;
     gap: 8px;
-    font-size: 0.8rem;
+    font-size: 0.8125rem;
     color: #1E40AF;
     font-weight: 500;
 }
@@ -145,42 +149,45 @@ html, body, [class*="css"], .stApp {
 div[data-testid="stForm"] {
     background: #FFFFFF !important;
     border: 1px solid #E2E8F0 !important;
-    border-radius: 16px !important;
-    padding: 36px !important;
+    border-radius: 12px !important;
+    padding: 40px !important;
     box-shadow: 0 1px 3px rgba(0,0,0,0.05), 0 8px 24px rgba(0,0,0,0.06) !important;
+    max-width: 600px;
+    width: calc(100% - 48px) !important;
+    margin: 0 auto !important;
 }
 
 /* ── Section label inside form ── */
 .form-section {
-    font-size: 0.68rem;
-    font-weight: 700;
-    letter-spacing: 0.12em;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.05em;
     text-transform: uppercase;
-    color: #94A3B8;
-    margin-bottom: 16px;
-    padding-bottom: 8px;
+    color: #64748B;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
     border-bottom: 1px solid #F1F5F9;
 }
 
 /* ── Field labels ── */
 label, .stTextInput label, .stTextArea label, .stSelectbox label {
-    font-size: 0.78rem !important;
-    font-weight: 600 !important;
-    letter-spacing: 0.02em !important;
+    font-size: 0.875rem !important;
+    font-weight: 500 !important;
+    letter-spacing: 0.01em !important;
     text-transform: none !important;
-    color: #374151 !important;
-    margin-bottom: 4px !important;
+    color: #334155 !important;
+    margin-bottom: 6px !important;
 }
 
 /* ── Inputs ── */
 .stTextInput input, .stTextArea textarea {
     background: #F8FAFC !important;
     border: 1.5px solid #E2E8F0 !important;
-    border-radius: 10px !important;
+    border-radius: 8px !important;
     color: #0F172A !important;
     font-family: 'Inter', sans-serif !important;
-    font-size: 0.92rem !important;
-    padding: 11px 14px !important;
+    font-size: 0.875rem !important;
+    padding: 10px 14px !important;
     transition: border-color 0.2s ease, box-shadow 0.2s ease !important;
 }
 .stTextInput input:focus, .stTextArea textarea:focus {
@@ -197,10 +204,10 @@ label, .stTextInput label, .stTextArea label, .stSelectbox label {
 .stSelectbox > div > div {
     background: #F8FAFC !important;
     border: 1.5px solid #E2E8F0 !important;
-    border-radius: 10px !important;
+    border-radius: 8px !important;
     color: #0F172A !important;
     font-family: 'Inter', sans-serif !important;
-    font-size: 0.92rem !important;
+    font-size: 0.875rem !important;
 }
 .stSelectbox > div > div:focus-within {
     border-color: #3B82F6 !important;
@@ -212,11 +219,11 @@ label, .stTextInput label, .stTextArea label, .stSelectbox label {
     background: #2563EB !important;
     color: #FFFFFF !important;
     border: none !important;
-    border-radius: 10px !important;
-    padding: 13px 24px !important;
+    border-radius: 8px !important;
+    padding: 12px 24px !important;
     font-family: 'Inter', sans-serif !important;
     font-weight: 600 !important;
-    font-size: 0.9rem !important;
+    font-size: 0.875rem !important;
     letter-spacing: 0.01em !important;
     width: 100% !important;
     cursor: pointer !important;
@@ -236,7 +243,9 @@ label, .stTextInput label, .stTextArea label, .stSelectbox label {
 
 /* ── Result ticket card ── */
 .result-wrap {
-    margin-top: 24px;
+    margin: 32px auto 0 auto !important;
+    max-width: 600px;
+    width: calc(100% - 48px) !important;
 }
 .result-header-bar {
     display: flex;
@@ -245,36 +254,37 @@ label, .stTextInput label, .stTextArea label, .stSelectbox label {
     margin-bottom: 16px;
 }
 .result-label {
-    font-size: 0.68rem;
-    font-weight: 700;
-    letter-spacing: 0.14em;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.05em;
     text-transform: uppercase;
     color: #64748B;
 }
 .ticket-card {
     background: #FFFFFF;
     border: 1px solid #E2E8F0;
-    border-radius: 16px;
+    border-radius: 12px;
     overflow: hidden;
     box-shadow: 0 1px 3px rgba(0,0,0,0.05), 0 8px 24px rgba(0,0,0,0.06);
 }
 .ticket-head {
     background: #0F172A;
-    padding: 20px 28px;
+    padding: 16px 24px;
     display: flex;
     align-items: center;
     justify-content: space-between;
 }
 .ticket-id-label {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 0.8rem;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.75rem;
     font-weight: 500;
     color: #94A3B8;
-    letter-spacing: 0.06em;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
 }
 .ticket-id-val {
     font-family: 'JetBrains Mono', monospace;
-    font-size: 1rem;
+    font-size: 0.95rem;
     font-weight: 500;
     color: #F8FAFC;
     letter-spacing: 0.04em;
@@ -283,11 +293,11 @@ label, .stTextInput label, .stTextArea label, .stSelectbox label {
     display: inline-flex;
     align-items: center;
     gap: 6px;
-    font-size: 0.72rem;
-    font-weight: 700;
-    letter-spacing: 0.08em;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.02em;
     text-transform: uppercase;
-    padding: 5px 14px;
+    padding: 4px 12px;
     border-radius: 100px;
 }
 .ticket-grid {
@@ -296,7 +306,7 @@ label, .stTextInput label, .stTextArea label, .stSelectbox label {
     gap: 0;
 }
 .ticket-cell {
-    padding: 20px 28px;
+    padding: 16px 24px;
     border-bottom: 1px solid #F1F5F9;
     border-right: 1px solid #F1F5F9;
 }
@@ -307,21 +317,21 @@ label, .stTextInput label, .stTextArea label, .stSelectbox label {
     border-bottom: none;
 }
 .cell-key {
-    font-size: 0.68rem;
+    font-size: 0.75rem;
     font-weight: 600;
-    letter-spacing: 0.1em;
+    letter-spacing: 0.05em;
     text-transform: uppercase;
     color: #94A3B8;
     margin-bottom: 6px;
 }
 .cell-val {
-    font-size: 0.95rem;
+    font-size: 0.875rem;
     font-weight: 600;
     color: #0F172A;
 }
 .cell-val.mono {
     font-family: 'JetBrains Mono', monospace;
-    font-size: 0.85rem;
+    font-size: 0.8125rem;
     color: #475569;
     font-weight: 400;
 }
@@ -344,7 +354,7 @@ label, .stTextInput label, .stTextArea label, .stSelectbox label {
     transition: width 0.6s ease;
 }
 .conf-pct {
-    font-size: 0.82rem;
+    font-size: 0.8125rem;
     font-weight: 700;
     color: #2563EB;
     min-width: 36px;
@@ -352,23 +362,23 @@ label, .stTextInput label, .stTextArea label, .stSelectbox label {
 .sla-pill {
     display: inline-flex;
     align-items: center;
-    font-size: 0.82rem;
+    font-size: 0.8125rem;
     font-weight: 600;
     color: #0369A1;
     background: #E0F2FE;
     border-radius: 6px;
-    padding: 3px 10px;
+    padding: 4px 10px;
 }
 .latency-badge {
     display: inline-flex;
     align-items: center;
     font-family: 'JetBrains Mono', monospace;
-    font-size: 0.78rem;
+    font-size: 0.8125rem;
     font-weight: 500;
     color: #059669;
     background: #ECFDF5;
     border-radius: 6px;
-    padding: 3px 10px;
+    padding: 4px 10px;
 }
 .success-strip {
     display: flex;
@@ -377,9 +387,9 @@ label, .stTextInput label, .stTextArea label, .stSelectbox label {
     padding: 14px 20px;
     background: #F0FDF4;
     border: 1px solid #BBF7D0;
-    border-radius: 10px;
-    margin-bottom: 20px;
-    font-size: 0.84rem;
+    border-radius: 8px;
+    margin-bottom: 24px;
+    font-size: 0.875rem;
     font-weight: 500;
     color: #15803D;
 }
@@ -394,9 +404,12 @@ hr { border-color: #F1F5F9 !important; }
 
 /* Streamlit alert override */
 div[data-testid="stAlert"] {
-    border-radius: 10px !important;
+    border-radius: 8px !important;
     font-family: 'Inter', sans-serif !important;
     font-size: 0.84rem !important;
+    max-width: 600px;
+    width: calc(100% - 48px) !important;
+    margin: 0 auto 24px auto !important;
 }
 </style>
 """, unsafe_allow_html=True)
@@ -412,9 +425,6 @@ st.markdown("""
   <span class="topnav-badge">AI Triage Active</span>
 </div>
 """, unsafe_allow_html=True)
-
-# ── Page wrapper start ──────────────────────────────────────────────────────
-st.markdown('<div class="page-wrap">', unsafe_allow_html=True)
 
 # ── Page header ─────────────────────────────────────────────────────────────
 st.markdown("""
@@ -550,5 +560,3 @@ if submitted:
           </div>
         </div>
         """, unsafe_allow_html=True)
-
-st.markdown('</div>', unsafe_allow_html=True)
