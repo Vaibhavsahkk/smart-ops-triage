@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="images/admin_insights.png" alt="Smart Facilities Triage — Admin Control Center" width="100%">
+  <img src="images/admin_insights.png" alt="Smart Facilities Triage - Admin Control Center" width="100%">
 </div>
 
 <br>
@@ -12,13 +12,13 @@
 [![Power BI](https://img.shields.io/badge/Power_BI-Ready-F2C811.svg)](https://powerbi.microsoft.com/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-22C55E.svg)](LICENSE)
 
-A full-stack facility management automation prototype built to simulate how enterprise CMMS platforms like Maximo and Planon handle work order intake. The system takes an unstructured text description from a facility employee and, in under 1ms, returns a categorized, prioritized, team-routed ticket — with a complete override audit trail and Power BI analytics layer on top.
+A full-stack facility management automation prototype built to simulate how enterprise CMMS platforms like Maximo and Planon handle work order intake. The system takes an unstructured text description from a facility employee and, in under 1ms, returns a categorized, prioritized, team-routed ticket with a complete override audit trail and a Power BI analytics layer on top.
 
 ---
 
 ## Why I Built This
 
-Most facility teams still route work orders through email threads or basic web forms with no automatic classification. A maintenance coordinator has to read each ticket, figure out whether it belongs to electrical, plumbing, or HVAC, assign a priority, pick the right team, and then notify them. At scale — hundreds of sites, thousands of requests — this is where things break down.
+Most facility teams still route work orders through email threads or basic web forms with no automatic classification. A maintenance coordinator has to read each ticket, figure out whether it belongs to electrical, plumbing, or HVAC, assign a priority, pick the right team, and then notify them. At scale, across hundreds of sites and thousands of requests, this is where things break down.
 
 This project automates that middle layer. It is not production software, but it is built to the standard where it could serve as a working prototype for a real operations team.
 
@@ -44,15 +44,15 @@ This project automates that middle layer. It is not production software, but it 
 
 When a request is submitted through the intake portal, the triage engine runs three operations in sequence:
 
-1. **Categorization** — scans the description for keyword patterns tied to 8 facility categories (HVAC, Electrical, Plumbing, Lighting, Furniture, Painting, Climate Control, Event Support). Uses word-boundary regex matching, so "ac" inside "replacement" does not trigger an HVAC match.
+1. **Categorization**: scans the description for keyword patterns tied to 8 facility categories (HVAC, Electrical, Plumbing, Lighting, Furniture, Painting, Climate Control, Event Support). Uses word-boundary regex matching, so "ac" inside "replacement" does not trigger an HVAC match.
 
-2. **Priority scoring** — maps the description against a priority keyword hierarchy (Critical, High, Medium, Low), checked in order so higher-severity terms always win.
+2. **Priority scoring**: maps the description against a priority keyword hierarchy (Critical, High, Medium, Low), checked in order so higher-severity terms always win.
 
-3. **Team routing** — looks up the assigned team from a config map and pulls the corresponding SLA window (8h Critical, 24h High, 48h Medium, 72h Low).
+3. **Team routing**: looks up the assigned team from a config map and pulls the corresponding SLA window (8h Critical, 24h High, 48h Medium, 72h Low).
 
 The result is a structured ticket written to SQLite and a notification dispatched to both email and Microsoft Teams.
 
-On the admin side, an operations reviewer can inspect open tickets, override the AI's classification decisions if they disagree, and close tickets. Every override — field changed, old value, new value, reviewer name — is written to a separate `override_log` table. This is what drives the AI accuracy metric: closed tickets with zero overrides count as correct predictions.
+On the admin side, an operations reviewer can inspect open tickets, override the AI's classification decisions if they disagree, and close tickets. Every override (field changed, old value, new value, reviewer name) is written to a separate `override_log` table. This is what drives the AI accuracy metric: closed tickets with zero overrides count as correct predictions.
 
 ---
 
@@ -62,10 +62,10 @@ On the admin side, an operations reviewer can inspect open tickets, override the
 |---|---|
 | Intake UI | Streamlit (custom CSS, Inter + JetBrains Mono) |
 | Admin UI | Streamlit (wide layout, sidebar, tabbed views) |
-| Triage Engine | Pure Python — regex keyword matching, O(n) per request |
+| Triage Engine | Pure Python, regex keyword matching, O(n) per request |
 | Database | SQLite via `sqlite3` stdlib |
 | Notifications | smtplib (SMTP/Gmail), requests (Teams webhook) |
-| Analytics | Power BI Desktop — CSV flat file import |
+| Analytics | Power BI Desktop, CSV flat file import |
 | Export | pandas CSV export with deterministic calendar dimension |
 
 ---
@@ -117,19 +117,19 @@ python scripts/seed_data.py
 python scripts/export_for_powerbi.py
 ```
 
-This creates a fresh SQLite database with 50 varied tickets across 8 categories — 35 closed (25 clean AI wins, 10 with reviewer overrides) and 15 open, giving a realistic 71.4% AI accuracy baseline to demo against.
+This creates a fresh SQLite database with 50 varied tickets across 8 categories: 35 closed (25 clean AI wins, 10 with reviewer overrides) and 15 open, giving a realistic 71.4% AI accuracy baseline to demo against.
 
 ### 3. Run both apps
 
 Open two separate terminals from the project root:
 
-**Terminal 1 — Employee intake portal:**
+**Terminal 1 - Employee intake portal:**
 
 ```bash
 streamlit run app/user_form.py --server.port 8501
 ```
 
-**Terminal 2 — Admin control center:**
+**Terminal 2 - Admin control center:**
 
 ```bash
 streamlit run app/admin_panel.py --server.port 8502
@@ -159,7 +159,7 @@ EMAIL_APP_PASSWORD = "your-app-password"
 TEAMS_WEBHOOK_URL = "https://your-org.webhook.office.com/..."
 ```
 
-Leave them blank to skip without any errors — the intake pipeline continues either way.
+Leave them blank to skip without any errors. The intake pipeline continues either way.
 
 ---
 
@@ -195,6 +195,6 @@ flowchart TD
 
 This is a portfolio project. A few things that would need to change before this runs in production:
 
-- **SQLite to PostgreSQL** — SQLite works fine at low concurrency but is not the right choice for a multi-site facility team with hundreds of concurrent users.
-- **Authentication** — The reviewer identity field in the admin panel is just a text input. Real deployment would need SSO, probably via Azure AD.
-- **Triage engine** — The keyword matching approach is fast and explainable, but the `override_log` data is the right training signal for eventually moving to a proper text classifier. The architecture was designed with that transition in mind.
+- **SQLite to PostgreSQL**: SQLite works fine at low concurrency but is not the right choice for a multi-site facility team with hundreds of concurrent users.
+- **Authentication**: The reviewer identity field in the admin panel is just a text input. Real deployment would need SSO, probably via Azure AD.
+- **Triage engine**: The keyword matching approach is fast and explainable, but the `override_log` data is the right training signal for eventually moving to a proper text classifier. The architecture was designed with that transition in mind.

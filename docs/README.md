@@ -102,7 +102,10 @@ This is a simplified prototype of a pattern in enterprise CMMS, EAM, and IWMS pl
    Open Power BI Desktop and import `requests.csv`, `overrides.csv`, and `calendar.csv` from `data/exports/`.
 
 ## Scenario Walkthrough
-On a Monday morning, 47 requests came in within 1 hour after an HVAC failure at Site-B. The triage system auto-categorized and routed all to Team-HVAC in under 5 ms each. The Power BI dashboard surfaced the spike. A reviewer used the admin panel to mark them as a single incident, dispatching one team instead of 47 individual responses.
+On a Monday morning, 47 requests came in within 1 hour after an HVAC failure at Site-B. The triage system auto-categorized and routed all of them to Team-HVAC in under 5 ms each. The Power BI dashboard surfaced the spike. A reviewer used the admin panel to mark them as a single incident, dispatching one team instead of 47 individual responses.
+
+## Admin Panel: Override Logging
+On the admin side, an operations reviewer can inspect open tickets, override the AI's classification decisions if they disagree, and close tickets. Every override (field changed, old value, new value, reviewer name) is written to a separate `override_log` table. This is what drives the AI accuracy metric: closed tickets with zero overrides count as correct predictions.
 
 ## Limitations
 - Notification destinations use example.com placeholders (no real delivery).

@@ -13,7 +13,7 @@ from config import SITES, BUILDINGS, CATEGORIES, PRIORITIES, TEAMS_MAP
 fake = Faker()
 random.seed(99)
 
-# ── Diverse descriptions spanning all 8 categories ──────────────────────────
+# Diverse descriptions spanning all 8 categories
 DESCRIPTIONS = [
     # HVAC (6)
     "AC unit stopped cooling completely in Room 201 — temperature rising fast",
@@ -65,7 +65,7 @@ DESCRIPTIONS = [
     "Event setup required for product launch in Hall A next week",
 ]
 
-# ── Helper ───────────────────────────────────────────────────────────────────
+# Helper
 def rand_dt(days_back_max=365):
     d = random.randint(1, days_back_max)
     h = random.randint(0, 23)
@@ -77,16 +77,14 @@ def rand_close_dt(submitted_at, hours_offset_max=72):
     offset = random.randint(1, hours_offset_max)
     return (base + timedelta(hours=offset)).strftime('%Y-%m-%d %H:%M:%S')
 
-# ── Shuffle descriptions for variety ─────────────────────────────────────────
+# Shuffle descriptions for variety
 pool = DESCRIPTIONS * 2          # 80 items → sample 75
 random.shuffle(pool)
 pool = pool[:75]
 
 tickets_inserted = 0
 
-# ─────────────────────────────────────────────────────────────────────────────
-# BLOCK A: 25 closed tickets — AI correct, zero overrides  (AI accuracy WIN)
-# ─────────────────────────────────────────────────────────────────────────────
+# BLOCK A: 25 closed tickets - AI correct, zero overrides (AI accuracy WIN)
 for i in range(25):
     desc = pool[i]
     r = triage(desc)
@@ -112,9 +110,7 @@ for i in range(25):
     ))
     tickets_inserted += 1
 
-# ─────────────────────────────────────────────────────────────────────────────
-# BLOCK B: 10 closed tickets — reviewer overrode category/priority (AI MISS)
-# ─────────────────────────────────────────────────────────────────────────────
+# BLOCK B: 10 closed tickets - reviewer overrode category/priority (AI MISS)
 OVERRIDE_PAIRS = [
     # (description, corrected_category, corrected_priority)
     ("Desk area uncomfortable due to cold air from vent", "Climate Control", "Medium"),
@@ -172,14 +168,12 @@ for i, (desc, correct_cat, correct_pri) in enumerate(OVERRIDE_PAIRS):
 
     tickets_inserted += 1
 
-# ─────────────────────────────────────────────────────────────────────────────
-# BLOCK C: 15 open tickets — active queue (varied, recent)
-# ─────────────────────────────────────────────────────────────────────────────
+# BLOCK C: 15 open tickets - active queue (varied, recent)
 for i in range(25, 40):
     desc = pool[i]
     r = triage(desc)
     tid = f"REQ-{uuid.uuid4().hex[:8].upper()}"
-    sub = rand_dt(30)   # recent — last 30 days
+    sub = rand_dt(30)   # recent, last 30 days
 
     execute("""
         INSERT INTO requests (
