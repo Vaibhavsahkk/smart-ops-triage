@@ -170,13 +170,14 @@ flowchart TD
     User([Employee]) -->|Submits description| Portal[Intake Portal :8501]
     Portal --> Engine[Triage Engine]
 
-    subgraph Engine [Sub-1ms Classification]
+    subgraph TriageCore [Sub-1ms Classification]
         direction LR
         A[Categorize] --> B[Prioritize] --> C[Route Team]
     end
 
-    Engine -->|Structured ticket| DB[(SQLite)]
-    Engine -->|Notify| Hub[Notification Hub]
+    Engine --> TriageCore
+    TriageCore -->|Structured ticket| DB[(SQLite)]
+    TriageCore -->|Notify| Hub[Notification Hub]
     Hub --> Email[SMTP Email]
     Hub --> Teams[MS Teams Webhook]
 
